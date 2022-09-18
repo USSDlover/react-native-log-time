@@ -7,3 +7,5 @@ export const reactNativeLogTime = () => {
         }
     }
 }
+
+reactNativeLogTime();
