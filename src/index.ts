@@ -1,4 +1,4 @@
-function reactNativeLogTime() {
+export const reactNativeLogTime = () => {
     if (console.time === undefined) {
         // @ts-ignore
         console.time = (timeStart: number, message: string) => {
