@@ -1,5 +1,4 @@
 const {rmdir, rename} = require('fs')
-const {exec} = require('child_process')
 
 module.exports = {
     clean: () => {
