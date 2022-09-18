@@ -26,3 +26,7 @@ console.time(timeStart, 'Calculation is done');
 Time Spent: 250 ms;
 Calculation is done
 ```
+
+## Contributing
+
+Make sure to follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
