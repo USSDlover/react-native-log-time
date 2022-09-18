@@ -2,19 +2,40 @@
   "name": "react-native-log-time",
   "version": "1.0.0",
   "description": "console.time is only available when connecting to chrome dev tools, and that will affect the performance, so we wrote this solution to make it available.",
-  "main": "index.js",
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/cjs/types/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "node -e \"require('./cmd').clean()\"",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./configs/tsconfig.esm.json && node -e \"require('./cmd').move()\"",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/USSDlover/react-native-log-time.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["react-native", "console.time", "time", "log"],
+  "author": "Alireza Razinejad",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/USSDlover/react-native-log-time/issues"
   },
-  "homepage": "https://github.com/USSDlover/react-native-log-time#readme"
+  "homepage": "https://github.com/USSDlover/react-native-log-time#readme",
+  "files": ["lib/**/*"],
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./lib/esm/index.mjs",
+        "types": "./lib/esm/types/index.d.ts"
+      },
+      "require": {
+        "default": "./lib/cjs/index.js",
+        "types": "./lib/cjs/types/index.d.ts"
+      }
+    }
+  },
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  }
 }
