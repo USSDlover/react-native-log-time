@@ -1,4 +1,5 @@
 const {rmdir, rename} = require('fs')
+const {exec} = require('child_process')
 
 module.exports = {
     clean: () => {
@@ -6,5 +7,12 @@ module.exports = {
     },
     move: () => {
         rename(`./lib/esm/index.js`, "./lib/esm/index.mjs", (e) => { if (e) throw e; console.log('output renamed') });
+    },
+    release: () => {
+        exec('semantic-release -d', (e, std, stde) => {
+            if (e) console.log(e);
+            if (stde) console.log(stde);
+            console.log(std);
+        })
     }
 }
