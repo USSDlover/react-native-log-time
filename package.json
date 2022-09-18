@@ -1,6 +1,6 @@
 {
   "name": "react-native-log-time",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "console.time is only available when connecting to chrome dev tools, and that will affect the performance, so we wrote this solution to make it available.",
   "main": "./lib/cjs/index.js",
   "types": "./lib/cjs/types/index.d.ts",
